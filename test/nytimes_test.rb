@@ -11,12 +11,14 @@ class NytimesTest < Minitest::Test
   end
 
   def test_it_can_get_copyright
+    result = @hash[:copyright]
     #Set your code to the local variable, "result"
 
     assert result, "Copyright (c) 2018 The New York Times Company. All Rights Reserved."
   end
 
   def test_it_can_get_array_of_stories
+    result = @hash[:results]
     #Set your code to the local variable, "result"
 
     assert result.is_a? (Array)
@@ -24,6 +26,9 @@ class NytimesTest < Minitest::Test
   end
 
   def test_it_can_get_all_stories_with_subsection_of_politics
+    result = @hash[:results].select do |story|
+      story[:subsection] == "Politics"
+    end
     #Set your code to the local variable, "result"
 
 
